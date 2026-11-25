@@ -1,0 +1,22 @@
+{
+  "nota": 4.9,
+  "total": 48,
+  "pessoas": [
+    {
+      "nome": "Mariana",
+      "foto": "/img/avaliacoes/mariana.jpg"
+    },
+    {
+      "nome": "Rafael",
+      "foto": "/img/avaliacoes/rafael.jpg"
+    },
+    {
+      "nome": "Ana Luísa",
+      "foto": "/img/avaliacoes/ana-luisa.jpg"
+    },
+    {
+      "nome": "João",
+      "foto": "/img/avaliacoes/joao.jpg"
+    }
+  ]
+}

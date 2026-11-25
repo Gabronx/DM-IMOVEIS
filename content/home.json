@@ -1,0 +1,57 @@
+{
+  "hero": {
+    "eyebrow": "",
+    "tituloLinha1": "O seu novo lar está",
+    "tituloLinha2": "a um clique de distância!",
+    "tituloLinha3": "",
+    "subtitulo": "Estamos aqui para ajudar você a encontrar seu novo lar.",
+    "imagem": "/img/site/hero/imagem.jpg",
+    "imagemCelular": "/img/site/hero/imagemCelular.jpg",
+    "imagemAlt": "Varanda ampla com sofá branco, arcos em pedra e jardim tropical ao fundo"
+  },
+  "destaques": [
+    "274435",
+    "274444",
+    "274441",
+    "274450",
+    "274439",
+    "274436"
+  ],
+  "porQue": {
+    "eyebrow": "Por que a DM",
+    "titulo": "Atendimento próximo, do primeiro contato à escritura.",
+    "texto": "Na DM, cada cliente é atendido diretamente pela consultora. Trabalhamos com uma carteira enxuta, conhecemos cada imóvel a fundo e conduzimos a negociação e a documentação com o cuidado de quem está tratando do seu patrimônio.",
+    "diferenciais": [
+      "Curadoria de imóveis em bairros valorizados de Curitiba e região",
+      "Avaliação de mercado e estratégia de venda para cada imóvel",
+      "Acompanhamento jurídico e documental até a entrega das chaves"
+    ]
+  },
+  "servicos": [
+    {
+      "titulo": "Compra",
+      "texto": "Entendemos o seu momento e apresentamos só os imóveis que fazem sentido para você."
+    },
+    {
+      "titulo": "Venda",
+      "texto": "Avaliação, fotos, divulgação e negociação para vender no preço certo, com segurança."
+    },
+    {
+      "titulo": "Locação",
+      "texto": "Seleção de inquilinos, contrato e acompanhamento para o seu imóvel render com tranquilidade."
+    },
+    {
+      "titulo": "Avaliação",
+      "texto": "Laudo de valor de mercado baseado em dados reais da região e no estado do imóvel."
+    },
+    {
+      "titulo": "Consultoria patrimonial",
+      "texto": "Orientação para comprar, vender ou investir pensando no longo prazo do seu patrimônio."
+    }
+  ],
+  "anuncie": {
+    "eyebrow": "Para proprietários",
+    "titulo": "Quer vender ou alugar o seu imóvel?",
+    "texto": "Cuidamos de tudo: avaliação, fotos, anúncio e atendimento aos interessados. Você acompanha cada etapa."
+  }
+}

@@ -1,0 +1,27 @@
+# dependências
+/node_modules
+
+# Next.js
+/.next/
+/out/
+/build
+*.tsbuildinfo
+next-env.d.ts
+
+# Netlify / Vercel
+.netlify
+.vercel
+
+# variáveis de ambiente (segredos) — só o exemplo vai para o repositório
+.env*
+!.env.example
+
+# arquivos originais pesados (fotos em alta, fontes de terceiros) — não vão para o repositório
+/_originais/
+
+# ferramentas locais
+.claude/
+.DS_Store
+Thumbs.db
+*.pem
+npm-debug.log*

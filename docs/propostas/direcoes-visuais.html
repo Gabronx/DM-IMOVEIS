@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Direções Visuais DM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300&family=Manrope:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root{--ui:#111;--ui-bg:#f4f4f2;--ui-muted:#666}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ui-bg);color:var(--ui);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+.switch{position:sticky;top:0;z-index:50;background:rgba(244,244,242,.92);backdrop-filter:blur(10px);border-bottom:1px solid #ddd;padding:12px 16px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.switch b{font-size:13px;margin-right:8px;font-weight:600}
+.switch button{font:500 13px Inter;padding:8px 14px;border-radius:999px;border:1px solid #ccc;background:#fff;cursor:pointer}
+.switch button[aria-selected=true]{background:#111;color:#fff;border-color:#111}
+.switch button:focus-visible{outline:2px solid #322CCC;outline-offset:2px}
+.note{font-size:12px;color:var(--ui-muted);margin-left:auto}
+.dir{display:none}.dir.on{display:block}
+.spec{max-width:1200px;margin:0 auto;padding:40px 16px 24px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:28px}
+.spec h2{font:600 12px Inter;letter-spacing:.12em;text-transform:uppercase;color:var(--ui-muted);margin-bottom:12px}
+.spec .lead{font-size:15px;line-height:1.6}
+.spec .big{font-size:30px;line-height:1.1;margin-bottom:8px}
+.sw{display:flex;gap:8px;flex-wrap:wrap}
+.sw div{width:64px}
+.sw i{display:block;height:48px;border-radius:6px;border:1px solid rgba(0,0,0,.1)}
+.sw span{display:block;font-size:11px;margin-top:4px;color:var(--ui-muted)}
+.frame{max-width:1200px;margin:0 auto 64px;padding:0 16px}
+.page{border-radius:14px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.35);border:1px solid #ddd}
+@media(max-width:860px){.spec{grid-template-columns:1fr}}
+
+/* ---------- ícones ---------- */
+.feat{display:flex;gap:16px;flex-wrap:wrap;font-size:12px}
+.feat span{display:flex;align-items:center;gap:6px}
+.feat svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5}
+
+/* ================= A — GALERIA ================= */
+.A{--bg:#FAFAF8;--ink:#03031A;--mut:#5d5e6b;--line:#e6e6e3;--blue:#2B2BB8;font-family:Inter,sans-serif;background:var(--bg);color:var(--ink)}
+.A .serif{font-family:'Cormorant Garamond',serif}
+.A nav{display:flex;align-items:center;justify-content:space-between;padding:22px 40px;position:absolute;inset:0 0 auto;color:#fff;z-index:2}
+.A nav ul{display:flex;gap:32px;list-style:none;font-size:13px;letter-spacing:.04em}
+.A .logo{display:flex;align-items:center;gap:10px;font:500 13px Inter;letter-spacing:.18em;text-transform:uppercase}
+.A .logo img{width:34px;filter:brightness(0) invert(1)}
+.A .wa{border:1px solid rgba(255,255,255,.6);padding:9px 16px;border-radius:999px;font-size:13px}
+.A .hero{position:relative;height:640px;color:#fff}
+.A .hero>img{width:100%;height:100%;object-fit:cover}
+.A .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,3,26,.35),rgba(3,3,26,.05) 40%,rgba(3,3,26,.55))}
+.A .hero .txt{position:absolute;left:40px;bottom:130px;z-index:1;max-width:640px}
+.A .eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;opacity:.85}
+.A h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:68px;line-height:1;margin-top:14px}
+.A h1 em{font-style:italic}
+.A .search{position:relative;z-index:3;margin:-56px 40px 0;background:#fff;border-radius:10px;box-shadow:0 20px 40px -20px rgba(3,3,26,.3);display:grid;grid-template-columns:auto 1.4fr 1fr 1fr 1fr auto;align-items:stretch}
+.A .tabs{display:flex;flex-direction:column;justify-content:center;gap:4px;padding:14px 20px;border-right:1px solid var(--line)}
+.A .tabs b{font-size:13px;font-weight:600;color:var(--blue)}.A .tabs span{font-size:13px;color:var(--mut)}
+.A .f{padding:16px 20px;border-right:1px solid var(--line)}
+.A .f small{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+.A .f div{font-size:14px;margin-top:4px}
+.A .go{background:var(--ink);color:#fff;border:0;padding:0 30px;border-radius:0 10px 10px 0;font:500 14px Inter}
+.A section{padding:96px 40px 0}
+.A .head{display:flex;justify-content:space-between;align-items:end;margin-bottom:36px}
+.A h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:44px;line-height:1.05}
+.A .link{font-size:13px;border-bottom:1px solid currentColor;padding-bottom:2px}
+.A .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.A .card .ph{aspect-ratio:4/5;overflow:hidden;border-radius:4px}
+.A .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.A .card:hover .ph img{transform:scale(1.04)}
+.A .card .meta{padding-top:16px}
+.A .card .bairro{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.A .card h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:24px;margin:4px 0 10px}
+.A .card .price{font-size:15px;font-weight:500;margin-top:12px}
+.A .card .feat{color:var(--mut)}
+.A .why{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.A .portrait{aspect-ratio:4/5;background:linear-gradient(160deg,#e9e9ee,#d6d7e3);border-radius:4px;display:grid;place-items:center;color:var(--mut);font-size:13px;text-align:center;padding:20px}
+.A .why p{color:var(--mut);line-height:1.7;margin:18px 0 28px;max-width:46ch}
+.A .why ol{list-style:none;border-top:1px solid var(--line)}
+.A .why li{padding:16px 0;border-bottom:1px solid var(--line);display:flex;gap:18px;font-size:15px}
+.A .why li b{font-family:'Cormorant Garamond',serif;color:var(--blue);font-size:20px;font-weight:500}
+.A .rev{display:flex;gap:40px;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:10px;padding:32px 40px;background:#fff}
+.A .footer{margin-top:96px;position:relative;height:340px;color:#fff}
+.A .footer img{width:100%;height:100%;object-fit:cover}
+.A .footer:after{content:"";position:absolute;inset:0;background:rgba(3,3,26,.72)}
+.A .footer .in{position:absolute;inset:0;z-index:1;padding:48px 40px;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;font-size:13px;line-height:1.8}
+.A .footer h4{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:30px;line-height:1.1;margin-bottom:12px}
+
+/* ================= B — NOTURNO ================= */
+.B{--bg:#05051A;--ink:#F5F5F7;--mut:#9a9bb0;--line:rgba(255,255,255,.12);--blue:#4F5BFF;font-family:Manrope,sans-serif;background:var(--bg);color:var(--ink)}
+.B nav{display:flex;justify-content:space-between;align-items:center;padding:24px 40px}
+.B nav ul{display:flex;gap:28px;list-style:none;font-size:14px;color:var(--mut)}
+.B nav ul li:first-child{color:var(--ink)}
+.B .logo{display:flex;gap:10px;align-items:center;font-weight:600;font-size:15px}
+.B .logo img{width:30px;filter:brightness(0) invert(1)}
+.B .wa{background:var(--blue);color:#fff;padding:10px 18px;border-radius:8px;font-size:14px;font-weight:600}
+.B .hero{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;padding:40px 40px 0;align-items:end}
+.B h1{font-family:Fraunces,serif;font-weight:300;font-size:76px;line-height:.98;letter-spacing:-.02em}
+.B h1 em{font-style:italic;color:var(--blue)}
+.B .hero p{color:var(--mut);margin:24px 0 32px;max-width:40ch;line-height:1.6}
+.B .hero .ph{border-radius:16px;overflow:hidden;height:520px}
+.B .hero .ph img{width:100%;height:100%;object-fit:cover}
+.B .search{background:#0d0d26;border:1px solid var(--line);border-radius:12px;padding:8px;display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.B .search .t{grid-column:1/-1;display:flex;gap:6px}
+.B .search .t span{padding:7px 14px;border-radius:6px;font-size:13px;color:var(--mut)}
+.B .search .t span.on{background:rgba(79,91,255,.18);color:#c9ccff}
+.B .search .f{background:#13132f;border-radius:8px;padding:12px 14px}
+.B .search small{font-size:11px;color:var(--mut);display:block}
+.B .search .f div{font-size:14px;margin-top:2px}
+.B .search button{grid-column:1/-1;background:var(--ink);color:var(--bg);border:0;border-radius:8px;padding:14px;font:700 14px Manrope}
+.B .stats{display:flex;gap:48px;padding:40px;border-bottom:1px solid var(--line)}
+.B .stats b{font-family:Fraunces,serif;font-weight:300;font-size:40px;display:block}
+.B .stats span{color:var(--mut);font-size:13px}
+.B section{padding:80px 40px 0}
+.B h2{font-family:Fraunces,serif;font-weight:300;font-size:46px;letter-spacing:-.01em;margin-bottom:32px}
+.B .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.B .card{background:#0d0d26;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:transform .4s,border-color .4s}
+.B .card:hover{transform:translateY(-4px);border-color:rgba(79,91,255,.5)}
+.B .card .ph{aspect-ratio:4/3;overflow:hidden}
+.B .card .ph img{width:100%;height:100%;object-fit:cover}
+.B .card .meta{padding:18px}
+.B .card .bairro{font-size:12px;color:var(--blue);font-weight:600}
+.B .card h3{font-weight:600;font-size:17px;margin:4px 0 12px}
+.B .card .feat{color:var(--mut)}
+.B .card .price{display:flex;justify-content:space-between;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-weight:700}
+.B .card .price small{font-weight:400;color:var(--mut)}
+.B .rev{display:flex;justify-content:space-between;align-items:center;gap:32px;padding:32px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(120deg,#0d0d26,#111243)}
+.B .footer{margin-top:80px;position:relative;height:320px}
+.B .footer img{width:100%;height:100%;object-fit:cover;opacity:.25}
+.B .footer .in{position:absolute;inset:0;padding:48px 40px;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;font-size:13px;line-height:1.8;color:var(--mut)}
+.B .footer h4{font-family:Fraunces,serif;font-weight:300;font-size:32px;color:var(--ink);margin-bottom:12px}
+
+/* ================= C — ATELIÊ ================= */
+.C{--bg:#FFFFFF;--ink:#0A0A0F;--mut:#6b6c78;--line:#ececf0;--blue:#322CCC;--soft:#F3F3FB;font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink)}
+.C nav{display:flex;justify-content:space-between;align-items:center;padding:20px 32px}
+.C nav ul{display:flex;gap:6px;list-style:none;font-size:14px;background:var(--soft);padding:5px;border-radius:999px}
+.C nav li{padding:7px 14px;border-radius:999px}.C nav li:first-child{background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.C .logo{display:flex;gap:10px;align-items:center;font-weight:600}
+.C .logo img{width:32px}
+.C .wa{border:1px solid var(--ink);padding:9px 16px;border-radius:999px;font-size:14px}
+.C .hero{margin:0 32px;border-radius:24px;overflow:hidden;position:relative;height:600px}
+.C .hero>img{width:100%;height:100%;object-fit:cover}
+.C .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,15,.7),rgba(10,10,15,.35) 55%,rgba(10,10,15,.1))}
+.C .hero h1{position:absolute;left:40px;bottom:120px;z-index:1;color:#fff;font-family:'Instrument Serif',serif;font-weight:400;font-size:84px;line-height:.95;letter-spacing:-.01em;max-width:11ch}
+.C .hero h1 em{font-style:italic}
+.C .search{position:absolute;z-index:2;left:40px;right:40px;bottom:32px;background:#fff;border-radius:999px;display:flex;align-items:center;padding:6px 6px 6px 8px;box-shadow:0 10px 30px rgba(0,0,0,.15)}
+.C .seg{display:flex;background:var(--soft);border-radius:999px;padding:4px}
+.C .seg span{padding:8px 16px;border-radius:999px;font-size:13px}.C .seg .on{background:var(--ink);color:#fff}
+.C .search .f{flex:1;padding:6px 20px;border-left:1px solid var(--line)}
+.C .search .f:first-of-type{border-left:0}
+.C .search small{display:block;font-size:11px;color:var(--mut)}
+.C .search .f div{font-size:14px}
+.C .search button{background:var(--blue);color:#fff;border:0;border-radius:999px;padding:14px 26px;font:600 14px 'DM Sans'}
+.C section{padding:88px 32px 0}
+.C .head{display:flex;justify-content:space-between;align-items:end;margin-bottom:28px}
+.C h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:52px;line-height:1}
+.C h2 em{color:var(--blue)}
+.C .chips{display:flex;gap:8px;flex-wrap:wrap}
+.C .chips span{border:1px solid var(--line);padding:8px 14px;border-radius:999px;font-size:13px}
+.C .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.C .card .ph{aspect-ratio:1/1;border-radius:18px;overflow:hidden;position:relative}
+.C .card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.C .card:hover .ph img{transform:scale(1.05)}
+.C .card .tag{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.92);font-size:12px;padding:5px 10px;border-radius:999px}
+.C .card .meta{padding:14px 4px}
+.C .card .row{display:flex;justify-content:space-between;align-items:baseline}
+.C .card h3{font-size:16px;font-weight:600}
+.C .card .price{font-weight:600}
+.C .card .bairro{color:var(--mut);font-size:14px;margin:2px 0 10px}
+.C .card .feat{color:var(--mut)}
+.C .why{background:var(--soft);border-radius:24px;padding:56px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px}
+.C .why .n{font-family:'Instrument Serif',serif;font-size:56px;color:var(--blue);line-height:1}
+.C .why p{color:var(--mut);font-size:14px;line-height:1.6;margin-top:8px}
+.C .rev{display:flex;justify-content:space-between;align-items:center;gap:32px;padding:28px 32px;border:1px solid var(--line);border-radius:20px}
+.C .footer{margin:88px 32px 32px;border-radius:24px;overflow:hidden;position:relative;height:320px}
+.C .footer img{width:100%;height:100%;object-fit:cover}
+.C .footer:after{content:"";position:absolute;inset:0;background:rgba(10,10,15,.66)}
+.C .footer .in{position:absolute;inset:0;z-index:1;padding:44px;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:32px;color:#fff;font-size:13px;line-height:1.8}
+.C .footer h4{font-family:'Instrument Serif',serif;font-weight:400;font-size:40px;line-height:1;margin-bottom:12px}
+
+/* ---------- avaliações (comum) ---------- */
+.avs{display:flex;align-items:center;gap:14px}
+.stack{display:flex}
+.stack i{width:40px;height:40px;border-radius:50%;border:2px solid var(--bg);margin-left:-12px;display:grid;place-items:center;font:600 13px Inter;font-style:normal;color:#fff}
+.stack i:first-child{margin-left:0}
+.avs p{font-size:14px;line-height:1.4}
+.avs p small{display:block;opacity:.7}
+.score{display:flex;align-items:center;gap:16px}
+.score b{font-size:44px;font-weight:500;line-height:1}
+.stars{display:flex;gap:2px}
+.stars svg{width:18px;height:18px}
+.score small{display:block;font-size:12px;opacity:.7;margin-top:4px}
+.todo{display:inline-block;font:600 10px Inter;letter-spacing:.06em;background:#fff3c4;color:#5a4500;padding:2px 6px;border-radius:4px;vertical-align:middle}
+
+/* ---------- responsivo dos esboços ---------- */
+@media(max-width:860px){
+ .A nav ul,.B nav ul,.C nav ul{display:none}
+ .A nav,.B nav{padding:18px 20px}.C nav{padding:16px 20px}
+ .A .hero{height:520px}.A .hero .txt{left:20px;right:20px;bottom:90px}.A h1{font-size:44px}
+ .A .search{margin:-40px 16px 0;grid-template-columns:1fr 1fr}.A .tabs{grid-column:1/-1;flex-direction:row;border-right:0;border-bottom:1px solid var(--line)}
+ .A .f{border-bottom:1px solid var(--line)}.A .go{grid-column:1/-1;padding:16px;border-radius:0 0 10px 10px}
+ .A section,.B section,.C section{padding:64px 20px 0}
+ .A .grid,.B .grid,.C .grid,.A .why,.C .why{grid-template-columns:1fr}
+ .A h2,.B h2,.C h2{font-size:34px}
+ .A .rev,.B .rev,.C .rev{flex-direction:column;align-items:flex-start;padding:24px}
+ .A .footer .in,.B .footer .in,.C .footer .in{grid-template-columns:1fr;padding:28px 20px;gap:12px}
+ .A .footer,.B .footer,.C .footer{height:auto;min-height:420px}
+ .B .hero{grid-template-columns:1fr;padding:20px}.B h1{font-size:48px}.B .hero .ph{height:300px;order:-1}
+ .B .stats{padding:28px 20px;gap:24px;flex-wrap:wrap}
+ .C .hero{margin:0 12px;height:auto;overflow:visible}
+ .C .hero>img,.C .hero:after{height:440px;border-radius:24px}.C .hero:after{bottom:auto}
+ .C .hero h1{left:20px;right:20px;font-size:52px;bottom:auto;top:240px}
+ .C .search{position:relative;flex-direction:column;align-items:stretch;border-radius:20px;left:0;right:0;bottom:0;margin:-36px 10px 0;padding:10px;gap:6px}
+ .C .search .f{border-left:0;border-top:1px solid var(--line);padding:10px 12px}
+ .C .why{padding:28px}.C .footer{margin:64px 12px 12px}
+}
+</style>
+</head>
+<body>
+
+<div class="switch" role="tablist" aria-label="Direções visuais">
+  <b>DM · Direções visuais</b>
+  <button role="tab" aria-selected="true" data-d="A">A · Galeria</button>
+  <button role="tab" aria-selected="false" data-d="B">B · Noturno</button>
+  <button role="tab" aria-selected="false" data-d="C">C · Ateliê</button>
+  <span class="note">Esboço estático · textos e avaliações provisórios</span>
+</div>
+
+<!-- ================================ A ================================ -->
+<div class="dir on" id="A">
+  <div class="spec">
+    <div><h2>A · Galeria</h2><p class="big" style="font-family:'Cormorant Garamond',serif">Editorial, claro e silencioso</p>
+      <p class="lead">Inspirada em revistas de arquitetura. A foto ocupa a tela inteira, os títulos usam uma serifada clássica e o azul aparece pouco, só em detalhes. É a direção mais "patrimonial" e atemporal.</p></div>
+    <div><h2>Tipografia</h2><p style="font:400 34px 'Cormorant Garamond'">Cormorant Garamond</p><p style="font:400 15px Inter;color:#666;margin-top:6px">Inter — textos e interface</p></div>
+    <div><h2>Paleta</h2><div class="sw">
+      <div><i style="background:#FAFAF8"></i><span>Branco<br>#FAFAF8</span></div>
+      <div><i style="background:#03031A"></i><span>Preto<br>#03031A</span></div>
+      <div><i style="background:#5d5e6b"></i><span>Grafite<br>#5D5E6B</span></div>
+      <div><i style="background:#2B2BB8"></i><span>Azul<br>#2B2BB8</span></div></div></div>
+  </div>
+  <div class="frame"><div class="page A">
+    <div class="hero">
+      <nav><div class="logo"><img src="img/logo-dm.png" alt="">DM Consultoria</div>
+        <ul><li>Comprar</li><li>Alugar</li><li>Anuncie</li><li>A consultoria</li><li>Contato</li></ul>
+        <span class="wa">(41) 98511-5695</span></nav>
+      <img src="img/hero.jpg" alt="Varanda ampla com sofá branco, arcos e jardim tropical">
+      <div class="txt"><p class="eyebrow">Consultoria patrimonial · Curitiba</p>
+        <h1>Imóveis escolhidos <em>com critério</em>, para a vida que você quer viver.</h1></div>
+    </div>
+    <div class="search">
+      <div class="tabs"><b>Comprar</b><span>Alugar</span></div>
+      <div class="f"><small>Bairro ou cidade</small><div>Água Verde, Bigorrilho…</div></div>
+      <div class="f"><small>Tipo</small><div>Apartamento</div></div>
+      <div class="f"><small>Quartos</small><div>3 ou mais</div></div>
+      <div class="f"><small>Preço</small><div>Até R$ 2 mi</div></div>
+      <button class="go">Buscar</button>
+    </div>
+    <section><div class="head"><h2 class="serif">Em destaque</h2><span class="link">Ver os 12 imóveis</span></div>
+      <div class="grid" data-cards></div></section>
+    <section><div class="why">
+      <div class="portrait">Foto da consultora (PNG sem fundo)<br><span class="todo">TODO</span></div>
+      <div><p class="eyebrow" style="color:var(--blue)">Por que a DM</p>
+        <h2>Atendimento próximo, do primeiro contato à escritura.</h2>
+        <p>Cada cliente é atendido diretamente pela consultora. Selecionamos poucos imóveis, conhecemos cada um a fundo e cuidamos da negociação e da documentação com o rigor de quem trata do seu patrimônio. <span class="todo">TEXTO PROVISÓRIO</span></p>
+        <ol><li><b>01</b>Curadoria de imóveis em bairros valorizados de Curitiba</li><li><b>02</b>Avaliação de mercado e estratégia de venda</li><li><b>03</b>Segurança jurídica em toda a negociação</li></ol></div>
+    </div></section>
+    <section><div class="rev" data-rev></div></section>
+    <div class="footer"><img src="img/rodape.jpg" alt="" loading="lazy"><div class="in">
+      <div><h4>Vamos encontrar o seu próximo endereço?</h4>CRECI/PR 12345-F</div>
+      <div>Rua Matheus Leme, 512<br>Curitiba/PR<br>(41) 98511-5695</div>
+      <div>@deborahmoreiraa<br>Instagram · Facebook · X</div></div></div>
+  </div></div>
+</div>
+
+<!-- ================================ B ================================ -->
+<div class="dir" id="B">
+  <div class="spec">
+    <div><h2>B · Noturno</h2><p class="big" style="font-family:Fraunces,serif;font-weight:300">Escuro, cinematográfico e marcante</p>
+      <p class="lead">Fundo quase preto (o mesmo tom da logo), fotos com contraste alto e um azul vivo que se destaca. Passa exclusividade e tecnologia. Tem mais impacto no primeiro acesso, mas exige fotos de boa qualidade em todos os imóveis.</p></div>
+    <div><h2>Tipografia</h2><p style="font:300 34px Fraunces">Fraunces</p><p style="font:400 15px Manrope;color:#666;margin-top:6px">Manrope — textos e interface</p></div>
+    <div><h2>Paleta</h2><div class="sw">
+      <div><i style="background:#05051A"></i><span>Preto<br>#05051A</span></div>
+      <div><i style="background:#0D0D26"></i><span>Superfície<br>#0D0D26</span></div>
+      <div><i style="background:#F5F5F7"></i><span>Branco<br>#F5F5F7</span></div>
+      <div><i style="background:#4F5BFF"></i><span>Azul<br>#4F5BFF</span></div></div></div>
+  </div>
+  <div class="frame"><div class="page B">
+    <nav><div class="logo"><img src="img/logo-dm.png" alt="">DM Consultoria Patrimonial</div>
+      <ul><li>Início</li><li>Comprar</li><li>Alugar</li><li>Anuncie</li><li>Contato</li></ul>
+      <span class="wa">WhatsApp</span></nav>
+    <div class="hero">
+      <div><h1>O imóvel certo é uma decisão <em>patrimonial.</em></h1>
+        <p>Consultoria imobiliária em Curitiba com curadoria de apartamentos, coberturas e sobrados de alto padrão.</p>
+        <div class="search"><div class="t"><span class="on">Comprar</span><span>Alugar</span></div>
+          <div class="f"><small>Bairro ou cidade</small><div>Bigorrilho</div></div>
+          <div class="f"><small>Tipo</small><div>Cobertura</div></div>
+          <div class="f"><small>Quartos</small><div>3+</div></div>
+          <div class="f"><small>Preço</small><div>R$ 1 – 2 mi</div></div>
+          <button>Buscar imóveis</button></div></div>
+      <div class="ph"><img src="img/hero.jpg" alt="Varanda ampla com sofá branco, arcos e jardim tropical"></div>
+    </div>
+    <div class="stats"><div><b>12</b><span>imóveis selecionados</span></div><div><b>9</b><span>bairros em Curitiba e região</span></div><div><b>4,9</b><span>avaliação dos clientes</span></div></div>
+    <section><h2>Em destaque</h2><div class="grid" data-cards></div></section>
+    <section><div class="rev" data-rev></div></section>
+    <div class="footer"><img src="img/rodape.jpg" alt="" loading="lazy"><div class="in">
+      <div><h4>Fale com a consultora.</h4>CRECI/PR 12345-F</div>
+      <div>Rua Matheus Leme, 512<br>Curitiba/PR<br>(41) 98511-5695</div>
+      <div>@deborahmoreiraa<br>Instagram · Facebook · X</div></div></div>
+  </div></div>
+</div>
+
+<!-- ================================ C ================================ -->
+<div class="dir" id="C">
+  <div class="spec">
+    <div><h2>C · Ateliê</h2><p class="big" style="font-family:'Instrument Serif',serif">Branco, contemporâneo e acolhedor</p>
+      <p class="lead">Branco puro com cantos arredondados, busca em formato de "pílula" sobre a foto e o azul da logo nos botões. Lembra estúdios de arquitetura e aplicativos premium. É a mais fácil de usar no celular.</p></div>
+    <div><h2>Tipografia</h2><p style="font:400 36px 'Instrument Serif'">Instrument Serif</p><p style="font:400 15px 'DM Sans';color:#666;margin-top:6px">DM Sans — textos e interface</p></div>
+    <div><h2>Paleta</h2><div class="sw">
+      <div><i style="background:#FFFFFF"></i><span>Branco<br>#FFFFFF</span></div>
+      <div><i style="background:#F3F3FB"></i><span>Névoa<br>#F3F3FB</span></div>
+      <div><i style="background:#0A0A0F"></i><span>Preto<br>#0A0A0F</span></div>
+      <div><i style="background:#322CCC"></i><span>Azul logo<br>#322CCC</span></div></div></div>
+  </div>
+  <div class="frame"><div class="page C">
+    <nav><div class="logo"><img src="img/logo-dm.png" alt="">DM Consultoria</div>
+      <ul><li>Início</li><li>Comprar</li><li>Alugar</li><li>Anuncie</li><li>Contato</li></ul>
+      <span class="wa">Fale conosco</span></nav>
+    <div class="hero"><img src="img/hero.jpg" alt="Varanda ampla com sofá branco, arcos e jardim tropical">
+      <h1>Seu próximo lar, <em>com assinatura.</em></h1>
+      <div class="search"><div class="seg"><span class="on">Comprar</span><span>Alugar</span></div>
+        <div class="f"><small>Onde</small><div>Bairro ou cidade</div></div>
+        <div class="f"><small>Tipo</small><div>Qualquer</div></div>
+        <div class="f"><small>Quartos</small><div>2+</div></div>
+        <div class="f"><small>Preço</small><div>Qualquer</div></div>
+        <button>Buscar</button></div></div>
+    <section><div class="head"><h2>Imóveis em <em>destaque</em></h2>
+      <div class="chips"><span>Água Verde</span><span>Bigorrilho</span><span>Santo Inácio</span><span>Vila Izabel</span></div></div>
+      <div class="grid" data-cards></div></section>
+    <section><div class="why">
+      <div><div class="n">01</div><b>Curadoria</b><p>Poucos imóveis, todos visitados e avaliados pessoalmente pela consultora.</p></div>
+      <div><div class="n">02</div><b>Estratégia</b><p>Avaliação de mercado e plano de divulgação para vender no preço certo.</p></div>
+      <div><div class="n">03</div><b>Segurança</b><p>Acompanhamento jurídico e documental até a entrega das chaves. <span class="todo">PROVISÓRIO</span></p></div>
+    </div></section>
+    <section><div class="rev" data-rev></div></section>
+    <div class="footer"><img src="img/rodape.jpg" alt="" loading="lazy"><div class="in">
+      <div><h4>Vamos conversar?</h4>CRECI/PR 12345-F</div>
+      <div>Rua Matheus Leme, 512<br>Curitiba/PR<br>(41) 98511-5695</div>
+      <div>@deborahmoreiraa<br>Instagram · Facebook · X</div></div></div>
+  </div></div>
+</div>
+
+<script>
+const ic={q:'<svg viewBox="0 0 24 24"><path d="M3 18V8m0 6h18v4M3 11h7a3 3 0 0 1 3 3M13 11h5a3 3 0 0 1 3 3"/></svg>',
+b:'<svg viewBox="0 0 24 24"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-3ZM6 12V6a2 2 0 0 1 4 0"/></svg>',
+v:'<svg viewBox="0 0 24 24"><path d="M5 16V11l2-5h10l2 5v5M5 16h14M7 19v-3m10 3v-3M5 11h14"/></svg>',
+a:'<svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 9h5m6 0h5M9 4v16"/></svg>'};
+// dados reais da carteira atual (fotos ilustrativas)
+const imv=[
+ {img:'casa-luxo.jpg',tipo:'Cobertura',bairro:'Santo Inácio',q:3,b:3,v:3,a:186,p:'R$ 1.398.000',c:'Cond. R$ 1.000'},
+ {img:'rodape.jpg',tipo:'Apartamento',bairro:'Bigorrilho',q:4,b:5,v:4,a:427,p:'R$ 2.198.000',c:'Cond. R$ 2.400'},
+ {img:'hero.jpg',tipo:'Sobrado',bairro:'Portão',q:3,b:4,v:4,a:400,p:'R$ 1.590.000',c:''}];
+const feat=i=>`<div class="feat"><span>${ic.q}${i.q} quartos</span><span>${ic.b}${i.b} banh.</span><span>${ic.v}${i.v} vagas</span><span>${ic.a}${i.a} m²</span></div>`;
+const tpl={
+ A:i=>`<article class="card"><div class="ph"><img src="img/${i.img}" alt="${i.tipo} no ${i.bairro}" loading="lazy"></div><div class="meta"><div class="bairro">${i.bairro} · Curitiba</div><h3>${i.tipo} com ${i.q} quartos</h3>${feat(i)}<div class="price">${i.p}</div></div></article>`,
+ B:i=>`<article class="card"><div class="ph"><img src="img/${i.img}" alt="${i.tipo} no ${i.bairro}" loading="lazy"></div><div class="meta"><div class="bairro">${i.bairro}</div><h3>${i.tipo} · ${i.a} m²</h3>${feat(i)}<div class="price">${i.p}<small>${i.c}</small></div></div></article>`,
+ C:i=>`<article class="card"><div class="ph"><img src="img/${i.img}" alt="${i.tipo} no ${i.bairro}" loading="lazy"><span class="tag">${i.tipo}</span></div><div class="meta"><div class="row"><h3>${i.bairro}</h3><span class="price">${i.p}</span></div><div class="bairro">Curitiba/PR</div>${feat(i)}</div></article>`};
+const star=(f,col)=>`<svg viewBox="0 0 24 24"><defs><linearGradient id="g${f}"><stop offset="${f}%" stop-color="${col}"/><stop offset="${f}%" stop-color="${col}" stop-opacity=".25"/></linearGradient></defs><path fill="url(#g${f})" d="m12 2.5 2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/></svg>`;
+const cols=['#3a3a5a','#322CCC','#6b6c78','#14143a'];
+const rev=col=>`<div class="avs"><div class="stack">${['MC','RP','AL','JS'].map((n,k)=>`<i style="background:${cols[k]}">${n}</i>`).join('')}</div><p><b>Mariana, Rafael e +46 clientes</b><small>avaliaram a consultoria <span class="todo">SIMULADO</span></small></p></div>
+<div class="score"><b>4,9</b><div><div class="stars" aria-label="4,9 de 5 estrelas">${star(100,col)+star(100,col)+star(100,col)+star(100,col)+star(75,col)}</div><small>de 5 · 48 avaliações</small></div></div>`;
+for(const d of ['A','B','C']){
+ const el=document.getElementById(d);
+ el.querySelector('[data-cards]').innerHTML=imv.map(tpl[d]).join('');
+ el.querySelector('[data-rev]').innerHTML=rev(d==='B'?'#4F5BFF':d==='C'?'#322CCC':'#03031A');
+}
+document.querySelectorAll('.switch button').forEach(b=>b.onclick=()=>{
+ document.querySelectorAll('.switch button').forEach(x=>x.setAttribute('aria-selected',x===b));
+ document.querySelectorAll('.dir').forEach(x=>x.classList.toggle('on',x.id===b.dataset.d));
+ scrollTo({top:0});
+});
+</script>
+</body>
+</html>

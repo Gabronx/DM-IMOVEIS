@@ -1,0 +1,12 @@
+{
+  "titulo": "Uma consultoria feita de atenção aos detalhes",
+  "introducao": "A DM Consultoria Patrimonial nasceu para oferecer um atendimento imobiliário diferente: próximo, transparente e sem pressa. Cada cliente é acompanhado pessoalmente pela consultora, do primeiro contato à entrega das chaves.",
+  "fotoConsultora": "/img/site/fotoConsultora.png",
+  "fotoPaginaSobre": "/img/site/fotoPaginaSobre.png",
+  "imagemFaixa": "/img/site/imagemFaixa.jpg",
+  "tituloHistoria": "Atendimento sob medida, como deveria ser.",
+  "historia": [
+    "Comprar, vender ou alugar um imóvel costuma ser uma das decisões mais importantes da vida de uma família. Por isso, trabalhamos com uma carteira enxuta, conhecemos cada imóvel a fundo e só apresentamos opções que realmente fazem sentido para quem nos procura.",
+    "Para os proprietários, cuidamos de toda a jornada: avaliação de mercado, apresentação do imóvel, atendimento aos interessados, negociação e documentação. Para quem compra, oferecemos orientação clara e segurança em cada etapa."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "titulo": "Anuncie seu imóvel com a DM",
+  "texto": "Venda ou alugue com acompanhamento próximo, do preço certo à assinatura do contrato. Conte um pouco sobre o imóvel e a consultora entra em contato para conversar.",
+  "etapas": [
+    {
+      "titulo": "Avaliação",
+      "texto": "Visita ao imóvel e análise de mercado para definir o valor ideal."
+    },
+    {
+      "titulo": "Apresentação",
+      "texto": "Fotos, descrição cuidadosa e divulgação no site e nos portais."
+    },
+    {
+      "titulo": "Visitas",
+      "texto": "Atendimento aos interessados e visitas acompanhadas pela consultora."
+    },
+    {
+      "titulo": "Negociação",
+      "texto": "Proposta, documentação e contrato conduzidos com segurança."
+    }
+  ]
+}
