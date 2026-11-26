@@ -39,7 +39,8 @@ export default async function Avaliacoes({ className = "container-page py-16 md:
         data-reveal
         className="flex flex-col gap-8 rounded-[12px] border border-line bg-white px-6 py-8 md:flex-row md:items-center md:justify-between md:px-12 md:py-10"
       >
-        <div className="flex items-center gap-5">
+        {/* Celular: fotos em cima e texto centralizado embaixo. Desktop: lado a lado. */}
+        <div className="flex flex-col items-center gap-2 text-center md:flex-row md:gap-5 md:text-left">
           <ul className="flex shrink-0" aria-hidden>
             {pessoas.map((p, i) => (
               <li
@@ -58,18 +59,19 @@ export default async function Avaliacoes({ className = "container-page py-16 md:
             ))}
           </ul>
           <div>
-            <h2 id="avaliacoes-titulo" className="text-[0.9375rem] font-semibold">
+            <h2 id="avaliacoes-titulo" className="text-[0.875rem] font-semibold md:text-[0.9375rem]">
               {quemAvaliou(
                 pessoas.map((p) => p.nome),
                 total,
               )}
             </h2>
-            <p className="mt-0.5 text-[0.875rem] text-graphite">avaliaram o atendimento da DM</p>
+            <p className="mt-0.5 text-[0.8125rem] text-graphite md:text-[0.875rem]">avaliaram o atendimento da DM</p>
           </div>
         </div>
 
-        <div className="flex items-center gap-5 border-t border-line pt-6 md:border-l md:border-t-0 md:pl-12 md:pt-0">
-          <p className="font-serif text-[3.75rem] leading-none">{nota.toLocaleString("pt-BR")}</p>
+        <div className="flex items-center justify-center gap-5 border-t border-line pt-6 md:border-l md:border-t-0 md:pl-12 md:pt-0">
+          {/* Algarismos alinhados (lining): sem o "9" descendo, a nota fica no mesmo centro das estrelas */}
+          <p className="font-serif text-[3.75rem] leading-none [font-variant-numeric:lining-nums]">{nota.toLocaleString("pt-BR")}</p>
           <div>
             <div className="flex gap-0.5 text-gold" role="img" aria-label={`Nota ${nota.toLocaleString("pt-BR")} de 5`}>
               {preenchimentos.map((p, i) => (

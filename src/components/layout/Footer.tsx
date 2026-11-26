@@ -29,7 +29,7 @@ export default async function Footer() {
       {/* …e um banho de dourado claro bem suave, que só tinge a foto. */}
       <div className="absolute inset-0 -z-10 bg-[#efe2c2] opacity-20 mix-blend-color" aria-hidden />
 
-      <div className="container-page pb-10 pt-20 md:pt-28">
+      <div className="container-page pb-8 pt-16 md:pb-10 md:pt-28">
         {/* Celular: chamada em cima; "Navegue" à esquerda e "Contato" + "Redes" à direita. Desktop: 4 colunas. */}
         <div className="grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div data-reveal className="col-span-2 md:col-span-1">
@@ -107,7 +107,7 @@ export default async function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 flex flex-col gap-6 border-t border-white/15 pt-8 text-[0.8125rem] text-white/65 md:flex-row md:items-center md:justify-between">
+        <div className="mt-12 flex flex-col gap-4 border-t border-white/15 pt-6 text-[0.8125rem] md:mt-20 md:gap-6 md:pt-8 text-white/65 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-6 text-white">
             <Logo claro />
           </div>

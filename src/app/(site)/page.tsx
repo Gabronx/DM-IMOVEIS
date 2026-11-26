@@ -53,7 +53,7 @@ export default async function Home() {
                 Imóveis em destaque
               </h2>
             </div>
-            <Link href="/comprar" className="link-underline text-[0.875rem]">
+            <Link href="/comprar" className="link-underline hidden text-[0.875rem] md:inline">
               Ver todos os {todos.length} imóveis
             </Link>
           </div>
@@ -65,13 +65,26 @@ export default async function Home() {
               </div>
             ))}
           </div>
+
+          {/* Celular: botão que "fecha" a lista de imóveis antes da próxima seção */}
+          <Link
+            href="/comprar"
+            className="mt-14 flex items-center justify-center gap-2 rounded-full border border-ink/20 py-4 text-[0.9375rem] transition-colors hover:border-ink md:hidden"
+          >
+            Ver todos os {todos.length} imóveis
+            <IconSeta className="size-4" />
+          </Link>
         </section>
 
         {/* ---------------- Por que a DM ---------------- */}
-        <section aria-labelledby="porque-titulo" className="container-page pt-16 md:pt-24">
+        {/* Celular: faixa de fundo própria, para separar bem dos cards de imóveis */}
+        <section
+          aria-labelledby="porque-titulo"
+          className="container-page max-md:mt-16 max-md:bg-mist max-md:pb-14 max-md:pt-14 md:pt-24"
+        >
           <div className="grid items-center gap-12 md:grid-cols-[0.9fr_1fr] md:gap-20">
             <div data-reveal>
-              <RetratoConsultora />
+              <RetratoConsultora className="max-md:bg-mist" />
             </div>
 
             {/* No celular o texto vem antes da foto (a foto logo após os cards de imóveis ficava estranha) */}
