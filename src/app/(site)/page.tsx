@@ -74,7 +74,8 @@ export default async function Home() {
               <RetratoConsultora />
             </div>
 
-            <div data-reveal style={{ "--reveal-offset": "8%" } as React.CSSProperties}>
+            {/* No celular o texto vem antes da foto (a foto logo após os cards de imóveis ficava estranha) */}
+            <div data-reveal className="max-md:order-first" style={{ "--reveal-offset": "8%" } as React.CSSProperties}>
               <p className="eyebrow text-gold">{home.porQue.eyebrow}</p>
               <h2 id="porque-titulo" className="mt-4 font-serif text-[2.375rem] leading-[1.06] text-balance md:text-[3.25rem]">
                 {home.porQue.titulo}
@@ -109,22 +110,23 @@ export default async function Home() {
                 Imóveis selecionados nos bairros mais procurados de Curitiba e da região metropolitana.
               </p>
             </div>
-            <ul data-reveal className="border-t border-line sm:columns-2 sm:gap-10">
+            {/* Celular: grade de 2 colunas (dois bairros por linha); telas maiores: 2 colunas corridas */}
+            <ul data-reveal className="grid grid-cols-2 gap-x-4 border-t border-line sm:block sm:columns-2 sm:gap-x-10">
               {bairros.map((b) => (
                 <li key={`${b.bairro}-${b.cidade}`} className="break-inside-avoid border-b border-line">
                   <Link
                     href={`/comprar?bairro=${encodeURIComponent(b.bairro)}`}
                     className="group flex items-center justify-between gap-4 py-4"
                   >
-                    <span>
-                      <span className="block font-serif text-[1.5rem] leading-tight transition-colors duration-300 group-hover:text-gold">
+                    <span className="min-w-0">
+                      <span className="block font-serif text-[1.25rem] leading-tight transition-colors duration-300 group-hover:text-gold sm:text-[1.5rem]">
                         {b.bairro}
                       </span>
                       <span className="text-[0.8125rem] text-graphite">
                         {b.cidade} · {b.total} {b.total === 1 ? "imóvel" : "imóveis"}
                       </span>
                     </span>
-                    <IconSeta className="size-5 -translate-x-2 text-gold opacity-0 transition-all duration-500 ease-[var(--ease-soft)] group-hover:translate-x-0 group-hover:opacity-100" />
+                    <IconSeta className="hidden size-5 shrink-0 -translate-x-2 text-gold opacity-0 sm:block transition-all duration-500 ease-[var(--ease-soft)] group-hover:translate-x-0 group-hover:opacity-100" />
                   </Link>
                 </li>
               ))}

@@ -34,24 +34,27 @@ export default async function Sobre() {
           <RetratoConsultora pagina="sobre" prioridade className="animate-[surgir_1.3s_var(--ease-soft)_0.15s_both]" />
         </div>
 
-        {/* ---------- Imagem com parallax ---------- */}
-        <div className="relative mt-24 h-[52vh] min-h-[320px] overflow-hidden md:mt-36 md:h-[70vh]">
-          <Parallax velocidade={0.25} className="absolute inset-x-0 -top-[20%] h-[140%]">
-            <Image src={paginaSobre.imagemFaixa ?? "/img/site/hero/imagem.jpg"} alt="" fill sizes="100vw" className="object-cover" />
-          </Parallax>
-        </div>
-
-        {/* ---------- História ---------- */}
-        <section aria-labelledby="historia" className="container-page grid gap-10 pt-16 md:grid-cols-[1fr_1.4fr] md:gap-20 md:pt-24">
-          <h2 id="historia" data-reveal className="font-serif text-[2.5rem] leading-[1.05] md:text-[3.25rem]">
-            {paginaSobre.tituloHistoria}
-          </h2>
-          <div data-reveal className="space-y-6 text-[1.0625rem] leading-[1.8] text-graphite">
-            {paginaSobre.historia.map((p) => (
-              <p key={p}>{p}</p>
-            ))}
+        {/* Celular: a história vem antes da imagem larga (foto da consultora + faixa uma embaixo da outra ficava pesado) */}
+        <div className="flex flex-col">
+          {/* ---------- Imagem com parallax ---------- */}
+          <div className="relative mt-16 h-[52vh] min-h-[320px] overflow-hidden max-md:order-last md:mt-36 md:h-[70vh]">
+            <Parallax velocidade={0.25} className="absolute inset-x-0 -top-[20%] h-[140%]">
+              <Image src={paginaSobre.imagemFaixa ?? "/img/site/hero/imagem.jpg"} alt="" fill sizes="100vw" className="object-cover" />
+            </Parallax>
           </div>
-        </section>
+
+          {/* ---------- História ---------- */}
+          <section aria-labelledby="historia" className="container-page grid gap-10 pt-16 md:grid-cols-[1fr_1.4fr] md:gap-20 md:pt-24">
+            <h2 id="historia" data-reveal className="font-serif text-[2.5rem] leading-[1.05] md:text-[3.25rem]">
+              {paginaSobre.tituloHistoria}
+            </h2>
+            <div data-reveal className="space-y-6 text-[1.0625rem] leading-[1.8] text-graphite">
+              {paginaSobre.historia.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
+            </div>
+          </section>
+        </div>
 
         {/* ---------- Serviços ---------- */}
         <section aria-labelledby="servicos" className="container-page pt-16 md:pt-24">

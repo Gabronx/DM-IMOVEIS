@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Saídas geradas e arquivos fora do app
+    ".netlify/**",
+    "_originais/**",
+    "docs/**",
   ]),
 ]);
 

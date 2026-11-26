@@ -36,9 +36,12 @@ export default function Header({ sobreposto = false }: { sobreposto?: boolean })
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,color,box-shadow,padding] duration-500 ease-[var(--ease-soft)] ${
-        transparente
-          ? "bg-transparent py-5 text-white"
-          : "bg-paper/92 py-3 text-ink shadow-[0_1px_0_var(--color-line)] backdrop-blur-md"
+        aberto
+          ? // Menu do celular aberto: cabeçalho ocupa a tela inteira, fundo sólido e sem a linha de baixo
+            "flex h-svh flex-col bg-paper py-3 text-ink lg:h-auto lg:shadow-[0_1px_0_var(--color-line)]"
+          : transparente
+            ? "bg-transparent py-5 text-white"
+            : "bg-paper/92 py-3 text-ink shadow-[0_1px_0_var(--color-line)] backdrop-blur-md"
       }`}
     >
       <a
@@ -97,7 +100,7 @@ export default function Header({ sobreposto = false }: { sobreposto?: boolean })
       <div
         id="menu-movel"
         hidden={!aberto}
-        className="h-[calc(100svh-4rem)] overflow-y-auto bg-paper lg:hidden"
+        className="min-h-0 flex-1 overflow-y-auto bg-paper lg:hidden"
       >
         <nav aria-label="Menu" className="container-page pb-10 pt-8">
           <ul className="divide-y divide-line border-y border-line">

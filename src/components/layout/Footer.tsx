@@ -30,8 +30,9 @@ export default async function Footer() {
       <div className="absolute inset-0 -z-10 bg-[#efe2c2] opacity-20 mix-blend-color" aria-hidden />
 
       <div className="container-page pb-10 pt-20 md:pt-28">
-        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
-          <div data-reveal>
+        {/* Celular: chamada em cima; "Navegue" à esquerda e "Contato" + "Redes" à direita. Desktop: 4 colunas. */}
+        <div className="grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+          <div data-reveal className="col-span-2 md:col-span-1">
             <p className="eyebrow text-white/70">Vamos conversar</p>
             <p className="mt-4 max-w-[18ch] font-display text-[1.625rem] leading-[1.15] tracking-[0.01em] text-balance md:text-[2rem]">
               Vamos encontrar o seu próximo endereço?
@@ -46,7 +47,7 @@ export default async function Footer() {
             </a>
           </div>
 
-          <div>
+          <div className="row-span-2 md:row-span-1">
             <h2 className="eyebrow text-white/60">Navegue</h2>
             <ul className="mt-5 space-y-3 text-[0.9375rem]">
               {navegacao.map((n) => (
@@ -59,7 +60,7 @@ export default async function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div className="min-w-0">
             <h2 className="eyebrow text-white/60">Contato</h2>
             <address className="mt-5 space-y-3 text-[0.9375rem] not-italic text-white/85">
               <p>
@@ -82,7 +83,7 @@ export default async function Footer() {
             </address>
           </div>
 
-          <div>
+          <div className="col-start-2 min-w-0 md:col-start-auto">
             <h2 className="eyebrow text-white/60">Redes</h2>
             <p className="mt-5 text-[0.9375rem] text-white/85">{empresa.usuarioRedes}</p>
             <ul className="mt-4 -ml-2.5 flex items-center gap-1">
