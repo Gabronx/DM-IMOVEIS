@@ -100,9 +100,9 @@ export default function Header({ sobreposto = false }: { sobreposto?: boolean })
       <div
         id="menu-movel"
         hidden={!aberto}
-        className="min-h-0 flex-1 overflow-y-auto bg-paper lg:hidden"
+        className="min-h-0 flex-1 flex-col overflow-y-auto bg-paper lg:hidden [&:not([hidden])]:flex"
       >
-        <nav aria-label="Menu" className="container-page pb-10 pt-8">
+        <nav aria-label="Menu" className="container-page flex flex-1 flex-col pb-8 pt-8">
           <ul className="divide-y divide-line border-y border-line">
             {navegacao.map((n) => (
               <li key={n.href}>
@@ -116,15 +116,18 @@ export default function Header({ sobreposto = false }: { sobreposto?: boolean })
               </li>
             ))}
           </ul>
-          <a
-            href={linkWhatsApp("Olá! Vim pelo site da DM Consultoria e gostaria de mais informações.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-8 flex items-center justify-center gap-2 rounded-full bg-ink py-4 text-white"
-          >
-            <IconWhatsApp className="size-5" /> Conversar no WhatsApp
-          </a>
-          <p className="mt-6 text-center text-sm text-graphite">{empresa.creci}</p>
+          {/* WhatsApp e CRECI no pé da tela, separados das opções */}
+          <div className="mt-auto pt-10">
+            <a
+              href={linkWhatsApp("Olá! Vim pelo site da DM Consultoria e gostaria de mais informações.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 rounded-full bg-ink py-4 text-white"
+            >
+              <IconWhatsApp className="size-5" /> Conversar no WhatsApp
+            </a>
+            <p className="mt-5 text-center text-sm text-graphite">{empresa.creci}</p>
+          </div>
         </nav>
       </div>
     </header>
